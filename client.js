@@ -24,6 +24,7 @@ const shift = (A, K) => {
  * newPos = ( 2 + 2 ) % 5 = 4
  * newPos = ( 3 + 2 ) % 5 = 0
  * newPos = ( 4 + 2 ) % 5 = 1
+ * newPos = ( 4 + 2 ) % 5 = 1
  * 
  * 
  */

@@ -130,3 +130,59 @@ FROM tasks JOIN reports ON tasks.id = reports.task_id
 GROUP BY tasks.id, tasks.name
 ORDER BY tasks.id; 
 
+
+/**
+ * Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.
+
+ 
+
+Example 1:
+
+Input: l1 = [1,2,4], l2 = [1,3,4]
+
+Output: [1,1,2,3,4,4]
+Example 2:
+
+Input: l1 = [], l2 = []
+Output: []
+Example 3:
+
+Input: l1 = [], l2 = [0]
+Output: [0]
+ */
+// l1 = [2,2,4], l2 = [1,1,3,4]
+
+l1 = [1,2,4]
+l2 = [1,3,4]
+// let output=[]
+// function mege_lists(l1, l2){
+//   for(let i=0; i<l1.length; i++){
+//     if (li1[i] <= li2[i]){
+//       output.append(li1[i])
+//     }
+//     else{
+//       output.append(li2[i])
+//     }
+//     return output
+//   }
+// }
+
+function mergeList(l1, l2) {
+  // while there are still numbers in list 1
+  while( l1.length > 0 ) {
+    // loop through list 2 and check the first value in 
+    // list one against all values in list 2 
+    for( let i = 0; i < l2.length; i++) {
+      // if the value is less than any given value in 
+      // list two add it to list 2 and remove it from // list 1
+      if( l1[0] <= l2[i] ) {
+        l2.splice(i, 0, l1[0])
+        l1.splice(0, 1)
+      }
+    }
+  }
+
+  return l2
+}
+
+mergeList(l1, l2);
